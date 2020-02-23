@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .accordion 
+            {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+              transition: 0.4s;
+            }
+
+            .active, .accordion:hover 
+            {
+              background-color: #ccc;
+            }
+
+            .accordion:after 
+            {
+              content: '\002B';
+              color: #777;
+              font-weight: bold;
+              float: right;
+              margin-left: 5px;
+            }
+
+            .active:after 
+            {
+              content: "\2212";
+            }
+
+            .panel 
+            {
+              padding: 0 18px;
+              background-color: white;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Strings</h2>
+        <p>This page contains problems on strings from geeks for geeks and their solutions.</p>
+        
+        <button class="accordion"><b>Reverse Words In String</b><br>
+            <a href="https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string/0">GFG Link</a><br>
+            <br>
+            Given a string, your method should return the string with words of the innput string reversed. For example, "Hello World" should return "World Hello".
+        </button>
+        <div class="panel">
+          <p><b>Logic:-</b><br>
+              Split the input string using the split method and have the words in a string array. Now maintain two poinnters, left pointer and right pointer pointing to the first and last element of the array. Till left pointer is less than the right pointer keep swapping the array elements. Finally traverse the array from the first element till the last, and concatenate each array element into a string and return the string.<br>
+              <b>Space complexity:-</b> TBD <br>
+              <b>Time complexity:-</b> O(n) <br>
+              <br>
+              <b>Note:-</b><br>
+              1. The time complexity of split() method is O(n) where n is the length of the string.<br>
+              2. In case the delimiter mentioned while calling split() method is not present in the string, then the array returned has just one element containing the entire input string.
+          </p>
+          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">public String reverseWordsInString(String <span style="color: #007020">str</span>)
+{
+  String s[] <span style="color: #333333">=</span> <span style="color: #007020">str</span><span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>);   
+  <span style="color: #007020">int</span> leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+  <span style="color: #007020">int</span> rightPointer <span style="color: #333333">=</span> s<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+  <span style="color: #008800; font-weight: bold">while</span>(leftPointer<span style="color: #333333">&lt;</span>rightPointer)
+  {
+    String temp <span style="color: #333333">=</span> s[leftPointer];
+    s[leftPointer] <span style="color: #333333">=</span> s[rightPointer];
+    s[rightPointer] <span style="color: #333333">=</span> temp;
+    leftPointer<span style="color: #333333">++</span>;
+    rightPointer<span style="color: #333333">--</span>;
+  }
+  leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+  rightPointer <span style="color: #333333">=</span> s<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+  String reversedString <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>;
+  <span style="color: #008800; font-weight: bold">while</span>(leftPointer<span style="color: #333333">&lt;=</span>rightPointer)
+  {
+    reversedString <span style="color: #333333">=</span> reversedString<span style="color: #333333">+</span>s[leftPointer]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; &quot;</span>;
+    leftPointer<span style="color: #333333">++</span>;
+  }
+  <span style="color: #008800; font-weight: bold">return</span> reversedString<span style="color: #333333">.</span>trim();
+}
+</pre></div>
+        </div>
+
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+
+    </body>
+</html>
