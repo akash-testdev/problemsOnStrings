@@ -91,6 +91,37 @@
 }
 </pre></div>
         </div>
+        
+        <button class="accordion"><b>Reverse Characters In String</b><br>
+            <a href="https://www.geeksforgeeks.org/reverse-a-string-in-java/">GFG Link</a><br>
+            <br>
+            Given a string, your method should return the input string inn reverse order. For example, "Hello World" should return "dlroW olleH".
+        </button>
+        <div class="panel">
+          <p><b>Logic:-</b><br>
+              Convert the input string into a character array. Now have two pointers, left pointer and right pointer pointing to the first and last elements of the character array. Now start reading characters from the right pointer, keep appending to a string, and keep decrementing the right pointer till it reaches the left pointer. Finally return the formed string.<br>
+              <b>Space complexity:-</b> TBD <br>
+              <b>Time complexity:-</b> O(n) <br>
+              <br>
+              <b>Note:-</b><br>
+              1. The time complexity of toCharArray() method is O(n) where n is the length of the string.<br>
+              2. When a character is added to a string, it gets appended to the string and the appended string is returned.
+          </p>
+          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">public String reverseCharacters(String <span style="color: #007020">str</span>)
+{
+  char ch[] <span style="color: #333333">=</span> <span style="color: #007020">str</span><span style="color: #333333">.</span>toCharArray();
+  <span style="color: #007020">int</span> leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+  <span style="color: #007020">int</span> rightPointer <span style="color: #333333">=</span> ch<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+  String reversedString <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>;
+  <span style="color: #008800; font-weight: bold">while</span>(rightPointer<span style="color: #333333">&gt;=</span>leftPointer)
+  {
+    reversedString <span style="color: #333333">=</span> reversedString <span style="color: #333333">+</span> ch[rightPointer];
+    rightPointer<span style="color: #333333">--</span>;
+  }
+  <span style="color: #008800; font-weight: bold">return</span> reversedString<span style="color: #333333">.</span>trim();
+}
+</pre></div>
+        </div>
 
         <script>
         var acc = document.getElementsByClassName("accordion");
